@@ -7,7 +7,8 @@ interface InViewElementProps {
 
 const InViewElement: React.FC<InViewElementProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
-  let elementRef = useRef<HTMLDivElement>(null);
+  
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,14 +17,16 @@ const InViewElement: React.FC<InViewElementProps> = ({ children }) => {
       },
       { threshold: 0.1 }
     );
+    const currentElement = elementRef.current;
 
-    if (elementRef.current) {
+    if (currentElement) {
       observer.observe(elementRef.current);
+      
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, []);
