@@ -32,25 +32,33 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-body{
-  font-family:'Roboto';
-  
+
+body {
+  font-family: 'Roboto';
+
   background-color: black;
   height: 2000px;
-  color:whitesmoke;
+  color: whitesmoke;
 }
+
 @keyframes fadeIn {
-  0% { opacity: 0; 
+  0% {
+    opacity: 0;
     background-color: antiquewhite;
-  color:#282c34;}
-  
-  70% { opacity: 1; }
+    color: #282c34;
+  }
+
+  70% {
+    opacity: 1;
+  }
 }
-.landing{
+
+.landing {
   width: 50%;
   height: 50%;
   display: block;
@@ -58,7 +66,7 @@ body{
   width: 40%;
   background-color: rgb(1, 1, 1);
   border-radius: 10%;
-  margin-top:10em;
+  margin-top: 10em;
   text-align: center;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -66,149 +74,192 @@ body{
   font-size: 2em;
   opacity: 70%;
   animation: fadeIn 4s;
- 
+  transition: background-color 2s ease-in;
+
 
 }
-.landing:hover{
+
+.landing:hover {
   background-color: antiquewhite;
-  color:#282c34;
- 
-  
-  
+  color: #282c34;
+
+
+
   transition: 3s linear;
 }
-.About{
-  
-  width:30%;
-  
+
+.About {
+
+  width: 30%;
+
   margin-left: 4em;
   background-color: rgba(1, 1, 1, 0.967);
   border-radius: 10%;
   padding: 3em;
   opacity: 60%;
   font-size: x-large;
+  transition: background-color 2s ease-in, color 2s ease-in;
+
+}
+.About:hover{
+  background-color: antiquewhite;
+  color: #282c34;
 }
 
-.Intrests{
+.Intrests {
   margin-top: 30%;
-  
+
 }
-.Hobbies{
+
+.Hobbies {
   margin-top: 15%;
   margin-left: 50%;
-  
+
 }
 
-.profile{
+.profile {
   border-radius: '5%';
 }
 
 .in-view-element {
   opacity: 0;
-  transition: opacity 2.5s ease-in-out;
+  color: rgb(241, 79, 79);
+  transition: opacity 2.5s ease-in-out, color 2s ease-in;
 }
 
 .in-view-element.visible {
   opacity: 1;
+  color: antiquewhite;
 }
 
-a{
+a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 
 }
-.link{
+
+.link {
   padding-left: 4rem;
   padding-right: 4rem;
-  
+
 }
-.lin:hover{
-  overflow: visible;
+
+.lin:hover {
+  /* overflow: visible; */
   opacity: 70%;
   transition: 0.5s ease-in-out;
   font-size: larger;
+  font-weight: 400;
 
 }
-.links{
+
+.links {
   margin: 0 auto;
   height: 2%;
   margin-top: 1em;
   /* margin: auto; */
   animation: fadeIn 10s ease-in-out;
   /* width: 120%; */
-  
+  transition: background-color 2s ease-in;
+
 }
-.res:hover{
+.res, .kg, .li, .gh{
+  transition: background-color 2s ease-in, border-bottom-left-radius 2s ease-in, border-bottom-right-radius 2s ease-in, font-size 2s ease-in, color 2s ease-in;
+}
+.res:hover {
   background-color: antiquewhite;
-  color:#282c34;
-  transition: 3s;
+  color: rgb(233, 100, 100);
+  transition: 1.5s;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-    
-  
-}
-.kg:hover{
-  background-color: antiquewhite;
-  color:#282c34;
-  transition: 3s;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;}
 
-.li:hover{
+
+}
+
+.kg:hover {
   background-color: antiquewhite;
-  color:#282c34;
-  transition: 3s;
+  color: rgb(175, 46, 175);
+  transition: 1.5s;
   border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;}
-.gh:hover{
+  border-bottom-right-radius: 50%;
+}
+
+.li:hover {
   background-color: antiquewhite;
-  color:#282c34;
+  color: rgb(62, 62, 200);
+  
+  transition: 1.5s;
   border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;}
-.Proj{
+  border-bottom-right-radius: 50%;
+}
+
+.gh:hover {
+  background-color: antiquewhite;
+  color: rgb(34, 117, 34);
+  transition: 1.5s;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.Proj {
   margin-top: 20em;
   margin-bottom: 5em;
-  
+
 }
-.project{
-  
+
+.project {
+
   background-color: rgb(2, 2, 2);
   padding: 1em;
   margin-bottom: 2em;
   width: 40%;
-  
+  transition: background-color 2s ease-in, color 2s ease-in, font-size 1s ease-in;
+
 }
-.project:hover{
+
+.project:hover {
   background-color: antiquewhite;
-  color:#282c34;
+  color: #282c34;
   margin-top: 2em;
   margin-bottom: 2em;
   font-size: larger;
   transition: 2s ease;
-  
+
 }
-.lin{
+
+.lin {
   display: inline-block;
 }
 
-.info{
-  
+.info {
+
   font-size: large;
-  
+
 
 }
-ul{
+
+ul {
   list-style-type: none;
 }
-.right{
+
+.right {
   text-align: right;
   margin-left: 50%;
   border-top-right-radius: 20%;
   border-bottom-left-radius: 20%;
 
 }
-.left{
+
+.left {
   text-align: left;
   border-top-left-radius: 20%;
   border-bottom-right-radius: 20%;
+}
+
+.tp {
+  margin-bottom: 2em;
+  font-size: 3em;
+  font-weight: 200;
+  font-family: 'Agdasima';
+
 }
