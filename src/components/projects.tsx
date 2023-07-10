@@ -26,6 +26,13 @@ const Projects = () => (
                 </div></a>
                 </li>
             </InViewElement>
+            <InViewElement>
+                <li><a href='https://github.com/james04nesbitt/Stock-Ticker'><div className="project right">
+                    <h1>Old Portfolio Website</h1>
+                    <p className="info">Here is my old portfolio website that I also created using React, featuring some of my older projects as well.<br /><br /> Coded With: React, Javascript</p>
+                </div></a>
+                </li>
+            </InViewElement>
         </ul>
     </div>
 )
