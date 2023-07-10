@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+;
 import './App.css';
 import HelloWorld from './components/app';
-import Profile from './components/image';
-import Subheading from './components/subheading';
+
 import InViewElement from './components/inview';
 import Nav from './components/nav';
 import Projects from './components/projects';
