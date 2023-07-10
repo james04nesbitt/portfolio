@@ -7,7 +7,7 @@ interface InViewElementProps {
 
 const InViewElement: React.FC<InViewElementProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
+  let elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
