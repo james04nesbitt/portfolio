@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import HelloWorld from './components/app';
+import Name from './components/name';
 
 import InViewElement from './components/inview';
 import Nav from './components/nav';
@@ -17,14 +17,14 @@ const App = () => {
     <Nav/>
   </div>
       <div className="landing text">
-      <HelloWorld />
+      <Name />
       {/* <Profile/> */}
       
       </div>
       <div className='about'>
   <InViewElement>
     <div className='About Intrests'>
-      Hello, my name is James Nesbitt and I am a Computer Science major at the University of Michigan-Ann Arbor. I enjoy working out, listening to music, and hanging out with my friends. I have many interests within the realm of Computer Science, including Machine Learning (I love spending time on Kaggle) as well as building web apps.
+      Hello, my name is James Nesbitt and I am a Computer Science major at the University of Michigan-Ann Arbor. I have many interests within the realm of Computer Science, including Machine Learning (I love spending time on Kaggle ) as well as building web apps.
     </div>
   </InViewElement>
   <InViewElement>
@@ -38,8 +38,9 @@ const App = () => {
 
 </div>
 
-
-      
+      <div className='footer'>
+      「 James Nesbitt 」
+      </div>
     </div>
   );
 }

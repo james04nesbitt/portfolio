@@ -124,7 +124,7 @@ body {
 .in-view-element {
   opacity: 0;
   color: rgb(241, 79, 79);
-  transition: opacity 2.5s ease-in-out, color 2s ease-in;
+  transition: opacity 1.5s ease-in-out, color 2s ease-in;
 }
 
 .in-view-element.visible {
@@ -262,4 +262,24 @@ ul {
   font-weight: 200;
   font-family: 'Agdasima';
 
+}
+:root {
+  --shadow: #5d5d5d;
+  --scrollbarBG: black;
+  --thumbBG: #a6b4a7;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  box-shadow: 0 -100vh 0 100vh var(--shadow), 0 0 15px 5px black;
+}
+.footer{
+  font-size: 1em;
 }
