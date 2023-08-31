@@ -71,11 +71,11 @@ body {
   padding-top: 1em;
   padding-bottom: 1em;
   font-weight: 100;
-  font-size: 2em;
+  font-size: 200%;
   opacity: 70%;
   animation: fadeIn 4s;
   transition: background-color 2s ease-in;
-
+  
 
 }
 
@@ -93,12 +93,12 @@ body {
   width: 30%;
 
   margin-left: 4em;
-  background-color: rgba(1, 1, 1, 0.967);
+  background-color: rgba(1, 1, 1, 0.763);
   border-radius: 10%;
   padding: 3em;
   opacity: 60%;
-  font-size: x-large;
-  transition: background-color 2s ease-in, color 2s ease-in;
+  font-size: 150%;
+  transition: background-color 1s ease-in, color 1s ease-in;
 
 }
 .About:hover{
@@ -124,7 +124,7 @@ body {
 .in-view-element {
   opacity: 0;
   color: rgb(241, 79, 79);
-  transition: opacity 1.5s ease-in-out, color 2s ease-in;
+  transition: opacity 1s ease-in-out, color 1s ease-in;
 }
 
 .in-view-element.visible {
@@ -213,7 +213,7 @@ a {
   padding: 1em;
   margin-bottom: 2em;
   width: 40%;
-  transition: background-color 2s ease-in, color 2s ease-in, font-size 1s ease-in;
+  transition: background-color 2s ease-in, color 1s ease-in, font-size 1s ease-in;
 
 }
 
