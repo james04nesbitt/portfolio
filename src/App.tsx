@@ -41,7 +41,10 @@ const App = () => {
       <div className='footer'>
       「 James Nesbitt 」
       </div>
+    
     </div>
+    
+
   );
 }
 
