@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NeuralNetwork from './components/neural_network';
+import Home from './home';
 
 
 const root = ReactDOM.createRoot(
@@ -14,7 +15,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} /> {/* Keep App at the root path */}
+        <Route path="/" element={<Home />} /> {/* Keep App at the root path */}
+        <Route path='alternate' element={<App/>}/>{}
         <Route path="/neural_network" element={<NeuralNetwork />} /> {/* Add NeuralNetwork at the specified path */}
       </Routes>
     </BrowserRouter>
