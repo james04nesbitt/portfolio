@@ -92,3 +92,14 @@ body {
 .link:hover {
   text-decoration: underline;
 }
+.repo-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #c61a1a;
+}
+
+.repo-description {
+  font-size: 13px;
+  color: #abb2bf;
+}
