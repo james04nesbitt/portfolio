@@ -1,0 +1,23 @@
+.pixel-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #282c34;
+  }
+  
+  .pixel-row {
+    display: flex;
+  }
+  
+  .pixel {
+    width: 10px;
+    height: 10px;
+    background-color: #282c34;
+  }
+  
+  .pixel.active {
+    background-color: #abb2bf;
+  }
