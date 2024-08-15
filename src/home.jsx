@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './terminal.css';
 import { TypeAnimation } from 'react-type-animation';
 import ResumeWindow from './ResumeWindow';
+import getRepos from './githubApi';
 
 function Terminal() {
   const [commandHistory, setCommandHistory] = useState([]);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      const data = await getRepos();
+      setRepos(data);
+    };
+    fetchRepos();
+  }, []);
 
   const handleCommand = (e) => {
     if (e.key === 'Enter') {
@@ -27,12 +37,23 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         case 'about me':
           output = 'James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.';
           break;
-        case 'projects':
-          output = `Projects:
- - Portfolio website
- - AI-based stock predictor
- - Chatbot with React`;
-          break;
+          case 'projects':
+            output = (
+              <div>
+                <h2>My Projects</h2>
+                <ul>
+                  {repos.map((repo) => (
+                    <li key={repo.id}>
+                      <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                        <span className="repo-title">{repo.name}</span>
+                      </a>
+                      <p className="repo-description">{repo.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+            break;
         case 'work experience':
           output = `Work Experience:
  - Software Developer Intern at XYZ Corp.
@@ -83,7 +104,6 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            
           />
         </div>
 
@@ -95,7 +115,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
             ]}
             wrapper="span"
             speed={50}
-            cursor={false}
+            cursor={true}
           />
         </p>
 
@@ -103,16 +123,23 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
           {commandHistory.map((entry, index) => (
             <div key={index} className="terminal-entry">
               <div className="terminal-command">
-                <span className="terminal-prompt">Ψ::&gt;&gt;</span>
+                <span className="terminal-prompt">$</span>
                 <span className="terminal-input">{entry.input}</span>
               </div>
-              <pre className="terminal-result" dangerouslySetInnerHTML={{ __html: entry.output }}></pre>
+              {typeof entry.output === 'string' ? (
+                <pre
+                  className="terminal-result"
+                  dangerouslySetInnerHTML={{ __html: entry.output }}
+                />
+              ) : (
+                <div className="terminal-result">{entry.output}</div>
+              )}
             </div>
           ))}
         </div>
 
         <div className="terminal-input-line">
-          <span className="terminal-prompt">Ψ::&gt;&gt;</span>
+          <span className="terminal-prompt">$</span>
           <input
             type="text"
             className="terminal-input-field"
