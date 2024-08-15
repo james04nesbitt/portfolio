@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './home.css';
+import './terminal.css';
 import { TypeAnimation } from 'react-type-animation';
 import ResumeWindow from './ResumeWindow';
 
@@ -14,16 +14,29 @@ function Terminal() {
 
       switch (input) {
         case 'help':
-          output = `Available commands: \n - help\n - about me\n - projects\n - work experience\n - clear\n\nVisit the alternate portfolio: <a href="/alternate" style="color: #00aaff;">Alternate Portfolio</a>`;
+          output = `Available commands:
+ - help
+ - about me
+ - projects
+ - work experience
+ - clear
+ - resume
+
+Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
           break;
         case 'about me':
-          output = `James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.`;
+          output = 'James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.';
           break;
         case 'projects':
-          output = `Projects: \n - Portfolio website\n - AI-based stock predictor\n - Chatbot with React`;
+          output = `Projects:
+ - Portfolio website
+ - AI-based stock predictor
+ - Chatbot with React`;
           break;
         case 'work experience':
-          output = `Work Experience: \n - Software Developer Intern at XYZ Corp.\n - AI Research Assistant at ABC University`;
+          output = `Work Experience:
+ - Software Developer Intern at XYZ Corp.
+ - AI Research Assistant at ABC University`;
           break;
         case 'clear':
           setCommandHistory([]);
@@ -37,77 +50,79 @@ function Terminal() {
       }
 
       setCommandHistory([...commandHistory, { input, output }]);
-      e.target.value = ''; // Clear the input
+      e.target.value = '';
     }
   };
 
   return (
     <div className="terminal">
-      <div className="indexTitle">
-        <TypeAnimation 
-          sequence={['James Nesbitt\'s Portfolio', 1000]}
-          wrapper="span"
-          speed={50}
-          style={{fontFamily:'Source Code Pro', fontSize: '2.5em', display: 'block' }}
-          cursor={false}
-        />
-      </div>
-      
-      <div className="subheading">
-        <TypeAnimation
-          preRenderFirstString={true}
-          sequence={[
-            500,
-            'CS Major', 
-            1000,
-            'AI enthusiast',
-            1000,
-            'Options Trader',
-            1000,
-            'WSB alumni',
-            500,
-          ]}
-          wrapper="span"
-          speed={50}
-          style={{fontFamily:'Source Code Pro', fontSize: '1.5em', display: 'block' }}
-          repeat={Infinity}
-        />
-        <br/>
-        <TypeAnimation
-          sequence={[
-            2000,
-            'Type help for commands',
-          ]}
-          wrapper="span"
-          speed={50}
-          style={{fontFamily:'Source Code Pro', fontSize: '1.2em', display: 'block', color: '#00aaff' }}
-          cursor={true}
-        />
-      </div>
-      
-      <div className="command-output">
-        {commandHistory.map((entry, index) => (
-          <div key={index}>
-            <div className="command-line">
-              <label className="decorator">[Ψ ~]$</label>
-              <span className="command-input">{entry.input}</span>
+      <div className="terminal-content">
+        <h1 className="terminal-title">
+          <TypeAnimation
+            sequence={['James Nesbitt\'s Portfolio', 1000]}
+            wrapper="span"
+            speed={50}
+            cursor={false}
+          />
+        </h1>
+
+        <div className="terminal-subtitle">
+          <TypeAnimation
+            preRenderFirstString={true}
+            sequence={[
+              500,
+              'CS Major',
+              1000,
+              'AI enthusiast',
+              1000,
+              'Options Trader',
+              1000,
+              'WSB alumni',
+              500,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            
+          />
+        </div>
+
+        <p className="terminal-help">
+          <TypeAnimation
+            sequence={[
+              2000,
+              'Type help for commands',
+            ]}
+            wrapper="span"
+            speed={50}
+            cursor={false}
+          />
+        </p>
+
+        <div className="terminal-output">
+          {commandHistory.map((entry, index) => (
+            <div key={index} className="terminal-entry">
+              <div className="terminal-command">
+                <span className="terminal-prompt">Ψ::&gt;&gt;</span>
+                <span className="terminal-input">{entry.input}</span>
+              </div>
+              <pre className="terminal-result" dangerouslySetInnerHTML={{ __html: entry.output }}></pre>
             </div>
-            <pre className="command-output-text" dangerouslySetInnerHTML={{ __html: entry.output }}></pre>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="input-line">
-        <label className="decorator">[Ψ ~]$</label>
-        <input 
-          id="cmd" 
-          className="Cmd" 
-          onKeyDown={handleCommand}
-          autoFocus
-        />
-      </div>
+        <div className="terminal-input-line">
+          <span className="terminal-prompt">Ψ::&gt;&gt;</span>
+          <input
+            type="text"
+            className="terminal-input-field"
+            onKeyDown={handleCommand}
+            autoFocus
+          />
+        </div>
 
-      {isResumeOpen && <ResumeWindow />}
+        {isResumeOpen && <ResumeWindow />}
+      </div>
     </div>
   );
 }

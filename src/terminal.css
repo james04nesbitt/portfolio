@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  background-color: #282c34;
+  color: #abb2bf;
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #282c34;
+  color: #abb2bf;
+}
+
+.terminal-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terminal-title {
+  color: #61afef;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.terminal-subtitle {
+  color: #98c379;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.terminal-help {
+  color: #e5c07b;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.terminal-output {
+  margin-bottom: 1rem;
+}
+
+.terminal-entry {
+  margin-bottom: 1rem;
+}
+
+.terminal-command {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-prompt {
+  color: #c678dd;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.terminal-input,
+.terminal-input-field {
+  background-color: transparent;
+  border: none;
+  color: #abb2bf;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  outline: none;
+}
+
+.terminal-input-field {
+  flex-grow: 1;
+}
+
+.terminal-result {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0.5rem 0 0 1rem;
+  color: #abb2bf;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: #61afef;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
