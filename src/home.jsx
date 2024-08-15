@@ -27,7 +27,7 @@ function Terminal() {
           break;
         case 'clear':
           setCommandHistory([]);
-          e.target.value = ''; // Clear the input box
+          e.target.value = '';
           return;
         case 'resume':
           setIsResumeOpen(true);
