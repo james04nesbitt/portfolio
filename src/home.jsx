@@ -110,12 +110,12 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         <p className="terminal-help">
           <TypeAnimation
             sequence={[
-              2000,
+              1000,
               'Type help for commands',
             ]}
             wrapper="span"
             speed={50}
-            cursor={true}
+            cursor={false}
           />
         </p>
 
