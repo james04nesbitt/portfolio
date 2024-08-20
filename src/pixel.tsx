@@ -45,7 +45,7 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({ onTransitionComplete 
       });
     }, 10);
 
-    return () => clearInterval(interval);
+return () => clearInterval(interval);
   }, [onTransitionComplete]);
 
   return (

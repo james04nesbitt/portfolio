@@ -40,12 +40,14 @@ const ResumeWindow = () => {
           </div>
           <span style={{ marginLeft: '20px', fontWeight: 'bold' }}>Resume</span>
         </div>
-        <iframe
+        {/* eslint-disable jsx-a11y/iframe-has-title */}
+        <iframe title='james resume'
           src={`${process.env.PUBLIC_URL}/james_resume.pdf#view=FitH`}
           width="100%"
           height="calc(100% - 41px)"
           style={{ border: 'none' }}
         />
+        {/* eslint-enable jsx-a11y/iframe-has-title */}
       </div>
     </Draggable>
   );
