@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
+import PDFViewer from 'pdf-viewer-reactjs';
 
 const ResumeWindow = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -24,6 +25,7 @@ const ResumeWindow = () => {
         borderRadius: '10px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
         overflow: 'hidden',
+        zIndex: 1000,
         transition: 'all 0.3s ease',
       }}>
         <div className="handle" style={{
@@ -40,14 +42,13 @@ const ResumeWindow = () => {
           </div>
           <span style={{ marginLeft: '20px', fontWeight: 'bold' }}>Resume</span>
         </div>
-        {/* eslint-disable jsx-a11y/iframe-has-title */}
-        <iframe title='james resume'
-          src={`${process.env.PUBLIC_URL}/james_resume.pdf#view=FitH`}
-          width="100%"
-          height="calc(100% - 41px)"
-          style={{ border: 'none' }}
-        />
-        {/* eslint-enable jsx-a11y/iframe-has-title */}
+        <div style={{ height: 'calc(100% - 41px)' }}>
+          <PDFViewer
+            document={{
+              url: `${process.env.PUBLIC_URL}/james_resume.pdf`,
+            }}
+          />
+        </div>
       </div>
     </Draggable>
   );

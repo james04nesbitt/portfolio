@@ -56,8 +56,8 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
             break;
         case 'work experience':
           output = `Work Experience:
- - Software Developer Intern at XYZ Corp.
- - AI Research Assistant at ABC University`;
+ - Software Engineer Intern at Ford Motor Company`
+    ;
           break;
         case 'clear':
           setCommandHistory([]);
@@ -110,7 +110,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         <p className="terminal-help">
           <TypeAnimation
             sequence={[
-              1000,
+              1500,
               'Type help for commands',
             ]}
             wrapper="span"
