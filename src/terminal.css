@@ -58,18 +58,41 @@ body {
   font-weight: bold;
 }
 
-.terminal-input,
-.terminal-input-field {
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.autocomplete-wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.terminal-input-field,
+.terminal-input-suggestion {
   background-color: transparent;
   border: none;
   color: #abb2bf;
   font-family: 'Fira Code', monospace;
   font-size: 1rem;
   outline: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .terminal-input-field {
-  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.terminal-input-suggestion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #abb2bf80; /* Lighter color for suggestion */
+  z-index: 1;
+  pointer-events: none;
 }
 
 .terminal-result {
@@ -77,11 +100,6 @@ body {
   word-wrap: break-word;
   margin: 0.5rem 0 0 1rem;
   color: #abb2bf;
-}
-
-.terminal-input-line {
-  display: flex;
-  align-items: center;
 }
 
 .link {
@@ -92,6 +110,7 @@ body {
 .link:hover {
   text-decoration: underline;
 }
+
 .repo-title {
   font-size: 20px;
   font-weight: bold;

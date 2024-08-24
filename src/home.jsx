@@ -1,13 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './terminal.css';
 import { TypeAnimation } from 'react-type-animation';
 import ResumeWindow from './ResumeWindow';
 import getRepos from './githubApi';
 
+const commandsList = [
+  'help',
+  'about me',
+  'projects',
+  'work experience',
+  'clear',
+  'resume',
+];
+
 function Terminal() {
   const [commandHistory, setCommandHistory] = useState([]);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [repos, setRepos] = useState([]);
+  const [input, setInput] = useState('');
+  const [suggestion, setSuggestion] = useState('');
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -17,14 +29,42 @@ function Terminal() {
     fetchRepos();
   }, []);
 
-  const handleCommand = (e) => {
-    if (e.key === 'Enter') {
-      const input = e.target.value.trim().toLowerCase();
-      let output = '';
+  const handleInputChange = (e) => {
+    const value = e.target.value.toLowerCase();
+    setInput(value);
 
-      switch (input) {
-        case 'help':
-          output = `Available commands:
+    if (value) {
+      const matchedCommand = commandsList.find((command) =>
+        command.startsWith(value)
+      );
+      if (matchedCommand) {
+        setSuggestion(matchedCommand);
+      } else {
+        setSuggestion('');
+      }
+    } else {
+      setSuggestion('');
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      if (suggestion) {
+        setInput(suggestion);
+        setSuggestion('');
+      }
+    } else if (e.key === 'Enter') {
+      handleCommand(input);
+    }
+  };
+
+  const handleCommand = (command) => {
+    let output = '';
+
+    switch (command) {
+      case 'help':
+        output = `Available commands:
  - help
  - about me
  - projects
@@ -33,46 +73,46 @@ function Terminal() {
  - resume
 
 Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
-          break;
-        case 'about me':
-          output = 'James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.';
-          break;
-          case 'projects':
-            output = (
-              <div>
-                <h2>My Projects</h2>
-                <ul>
-                  {repos.map((repo) => (
-                    <li key={repo.id}>
-                      <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                        <span className="repo-title">{repo.name}</span>
-                      </a>
-                      <p className="repo-description">{repo.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-            break;
-        case 'work experience':
-          output = `Work Experience:
- - Software Engineer Intern at Ford Motor Company`
-    ;
-          break;
-        case 'clear':
-          setCommandHistory([]);
-          e.target.value = '';
-          return;
-        case 'resume':
-          setIsResumeOpen(true);
-          break;
-        default:
-          output = `Command not found: ${input}`;
-      }
-
-      setCommandHistory([...commandHistory, { input, output }]);
-      e.target.value = '';
+        break;
+      case 'about me':
+        output = 'James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.';
+        break;
+      case 'projects':
+        output = (
+          <div>
+            <h2>My Projects</h2>
+            <ul>
+              {repos.map((repo) => (
+                <li key={repo.id}>
+                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                    <span className="repo-title">{repo.name}</span>
+                  </a>
+                  <p className="repo-description">{repo.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+        break;
+      case 'work experience':
+        output = `Work Experience:
+ Software Engineer Intern at Ford Motor Company
+ - Developed a Chatbot using `;
+        break;
+      case 'clear':
+        setCommandHistory([]);
+        setInput('');
+        return;
+      case 'resume':
+        setIsResumeOpen(true);
+        break;
+      default:
+        output = `Command not found: ${command}`;
     }
+
+    setCommandHistory([...commandHistory, { input: command, output }]);
+    setInput('');
+    setSuggestion('');
   };
 
   return (
@@ -80,7 +120,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
       <div className="terminal-content">
         <h1 className="terminal-title">
           <TypeAnimation
-            sequence={['James Nesbitt\'s Portfolio', 1000]}
+            sequence={["James Nesbitt's Portfolio", 1000]}
             wrapper="span"
             speed={50}
             cursor={false}
@@ -140,12 +180,23 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
 
         <div className="terminal-input-line">
           <span className="terminal-prompt">$</span>
-          <input
-            type="text"
-            className="terminal-input-field"
-            onKeyDown={handleCommand}
-            autoFocus
-          />
+          <div className="autocomplete-wrapper">
+            <input
+              type="text"
+              className="terminal-input-field"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              autoFocus
+              ref={inputRef}
+            />
+            <input
+              type="text"
+              className="terminal-input-suggestion"
+              value={suggestion}
+              readOnly
+            />
+          </div>
         </div>
 
         {isResumeOpen && <ResumeWindow />}
