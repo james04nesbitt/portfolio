@@ -11,6 +11,7 @@ const commandsList = [
   'work experience',
   'clear',
   'resume',
+  'Course Work'
 ];
 
 function Terminal() {
@@ -71,11 +72,12 @@ function Terminal() {
  - work experience
  - clear
  - resume
+ - course work
 
 Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
         break;
       case 'about me':
-        output = 'James Nesbitt: CS Major, AI enthusiast, Options Trader, WSB alumni.';
+        output = 'I\'m James Nesbitt, ';
         break;
       case 'projects':
         output = (
@@ -107,7 +109,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         setIsResumeOpen(true);
         break;
       default:
-        output = `Command not found: ${command}`;
+        output = `Command not found: ψ{command}`;
     }
 
     setCommandHistory([...commandHistory, { input: command, output }]);
@@ -163,7 +165,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
           {commandHistory.map((entry, index) => (
             <div key={index} className="terminal-entry">
               <div className="terminal-command">
-                <span className="terminal-prompt">$</span>
+                <span className="terminal-prompt">ψ</span>
                 <span className="terminal-input">{entry.input}</span>
               </div>
               {typeof entry.output === 'string' ? (
@@ -179,7 +181,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         </div>
 
         <div className="terminal-input-line">
-          <span className="terminal-prompt">$</span>
+          <span className="terminal-prompt">ψ</span>
           <div className="autocomplete-wrapper">
             <input
               type="text"
