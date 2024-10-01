@@ -11,7 +11,7 @@ const commandsList = [
   'work experience',
   'clear',
   'resume',
-  'Course Work'
+  'course work'
 ];
 
 function Terminal() {
@@ -64,6 +64,22 @@ function Terminal() {
     let output = '';
 
     switch (command) {
+      case 'course work':
+        output = `
+        EECS 203-Discrete Math
+        EECS 280-Programming and Introductory Data Structures
+        EECS 281-Data Structures and Algorithms
+        EECS 370-Computer Organization
+        EECS 441-Mobile App Development for Entrepreneurs
+        EECS 445-Introduction to Machine Learning
+        EECS 482-Operating Systems
+        EECS 485-Web Systems
+        Math 214-Applied Linear Algebra
+        PHYSICS 380- Quantum Computing
+        LING 321-How CHatGPT Works
+        `;
+        
+        break;
       case 'help':
         output = `Available commands:
  - help
@@ -77,7 +93,7 @@ function Terminal() {
 Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
         break;
       case 'about me':
-        output = 'I\'m James Nesbitt, ';
+        output = 'I\'m James Nesbitt, im a student at the Univeristy of Michigan-Ann Arbor studying Computer Science. I am intrested in many aspects of this field from Machine Learning, App DEvelopment, IoT, and Fullstack Development, as well as the intersetion of computer Science, espically finance. In my free time I like to play the guitar, workout,  ';
         break;
       case 'projects':
         output = (
@@ -99,7 +115,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
       case 'work experience':
         output = `Work Experience:
  Software Engineer Intern at Ford Motor Company
- - Developed a Chatbot using `;
+ - Developed a Chatbot using Vertex AI and Gemnini to deve `;
         break;
       case 'clear':
         setCommandHistory([]);
@@ -109,7 +125,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         setIsResumeOpen(true);
         break;
       default:
-        output = `Command not found: ψ{command}`;
+        output = `Command not found: ${command}`;
     }
 
     setCommandHistory([...commandHistory, { input: command, output }]);

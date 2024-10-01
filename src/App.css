@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,6 +38,9 @@
     transform: rotate(360deg);
   }
 }
+a{
+  color: beige;
+}
 .App{
   background-color: black;
 }
@@ -71,7 +75,8 @@ body{
   height: 50%;
   display: block;
   margin: 0 auto;
-  width: 40%;
+  white-space: nowrap;
+ 
   background-color: rgb(1, 1, 1);
   border-radius: 10%;
   margin-top: 10em;
@@ -79,13 +84,18 @@ body{
   padding-top: 1em;
   padding-bottom: 1em;
   font-weight: 100;
-  font-size: 200%;
   opacity: 70%;
   animation: fadeIn 4s;
   transition: background-color 2s ease-in;
-  
-
+  overflow: hidden; /* Prevent text from spilling outside */
+  text-overflow: ellipsis; /* Add ellipsis when text is too long */
 }
+
+.landing h1 {
+  font-size: calc(1em + 2vw); /* Make the font size responsive */
+  white-space: nowrap; /* Prevent wrapping of the h1 text */
+}
+
 
 .landing:hover {
   background-color: antiquewhite;
@@ -98,14 +108,14 @@ body{
 
 .About {
 
-  width: 30%;
+  width: 30em;
 
-  margin-left: 4em;
+  
   background-color: rgba(1, 1, 1, 0.763);
   border-radius: 10%;
   padding: 3em;
   opacity: 60%;
-  font-size: 150%;
+  font-size: 1em;
   transition: background-color 1s ease-in, color 1s ease-in;
 
 }
@@ -215,6 +225,11 @@ a {
 
 }
 
+.project h1{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .project {
 
   background-color: rgb(2, 2, 2);
@@ -241,7 +256,7 @@ a {
 
 .info {
 
-  font-size: large;
+  font-size: 1em;
 
 
 }
@@ -251,6 +266,7 @@ ul {
 }
 
 .right {
+  
   text-align: right;
   margin-left: 50%;
   border-top-right-radius: 20%;

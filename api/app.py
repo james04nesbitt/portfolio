@@ -1,8 +1,6 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # This is to handle Cross-Origin Resource Sharing (CORS)
 
 @app.route('/data',methods=["GET"])
 def get_data():
