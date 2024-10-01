@@ -108,12 +108,12 @@ body{
 
 .About {
 
-  width: 30em;
+  width: 50%;
 
   
   background-color: rgba(1, 1, 1, 0.763);
   border-radius: 10%;
-  padding: 3em;
+  padding: 1.5em;
   opacity: 60%;
   font-size: 1em;
   transition: background-color 1s ease-in, color 1s ease-in;
@@ -235,7 +235,7 @@ a {
   background-color: rgb(2, 2, 2);
   padding: 1em;
   margin-bottom: 2em;
-  width: 40%;
+  width: 60%;
   transition: background-color 2s ease-in, color 1s ease-in, font-size 1s ease-in;
 
 }
@@ -266,13 +266,12 @@ ul {
 }
 
 .right {
-  
   text-align: right;
-  margin-left: 50%;
+  margin-left: 40%;
   border-top-right-radius: 20%;
   border-bottom-left-radius: 20%;
-
 }
+
 
 .left {
   text-align: left;
