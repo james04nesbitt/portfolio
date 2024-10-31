@@ -11,7 +11,8 @@ const commandsList = [
   'work experience',
   'clear',
   'resume',
-  'course work'
+  'course work',
+  'links'
 ];
 
 function Terminal() {
@@ -66,19 +67,22 @@ function Terminal() {
     switch (command) {
       case 'course work':
         output = `
+        Taken:
         EECS 203-Discrete Math
         EECS 280-Programming and Introductory Data Structures
         EECS 281-Data Structures and Algorithms
         EECS 370-Computer Organization
         EECS 441-Mobile App Development for Entrepreneurs
         EECS 445-Introduction to Machine Learning
-        EECS 482-Operating Systems
+        EECS 482-Operating Systems + EECS 498(Advanced Operating Systems Projects)
         EECS 485-Web Systems
         Math 214-Applied Linear Algebra
         PHYSICS 380- Quantum Computing
-        LING 321-How CHatGPT Works
+        LING 321-How ChatGPT Works
+        Currently Taking:
+        EECS 376- Foundations of Computer Science
+        EECS 491-Distributed Systems
         `;
-        
         break;
       case 'help':
         output = `Available commands:
@@ -93,7 +97,7 @@ function Terminal() {
 Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
         break;
       case 'about me':
-        output = 'I\'m James Nesbitt, im a student at the Univeristy of Michigan-Ann Arbor studying Computer Science. I am intrested in many aspects of this field from Machine Learning, App DEvelopment, IoT, and Fullstack Development, as well as the intersetion of computer Science, espically finance. In my free time I like to play the guitar, workout,  ';
+        output = 'I\'m James Nesbitt, I\'m a student at the University of Michigan-Ann Arbor studying Computer Science. I am interested in many aspects of this field from Machine Learning, App Development, IoT, and Fullstack Development, as well as the intersection of Computer Science and Finance. In my free time, I like to play the guitar, workout, and ';
         break;
       case 'projects':
         output = (
@@ -114,8 +118,8 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         break;
       case 'work experience':
         output = `Work Experience:
- Software Engineer Intern at Ford Motor Company
- - Developed a Chatbot using Vertex AI and Gemnini to deve `;
+ - Software Engineer Intern at Ford Motor Company
+   - Developed a Chatbot using Vertex AI and Gemini to develop...`;
         break;
       case 'clear':
         setCommandHistory([]);
@@ -217,7 +221,7 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
           </div>
         </div>
 
-        {isResumeOpen && <ResumeWindow />}
+        {isResumeOpen && <ResumeWindow onClose={() => setIsResumeOpen(false)} />}
       </div>
     </div>
   );

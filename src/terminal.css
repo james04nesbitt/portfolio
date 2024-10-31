@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 body {
   margin: 0;
   background-color: #282c34;
   color: #abb2bf;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .terminal {
@@ -24,6 +24,7 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .terminal-subtitle {
@@ -31,12 +32,14 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .terminal-help {
   color: #e5c07b;
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .terminal-output {
@@ -75,13 +78,12 @@ body {
   background-color: transparent;
   border: none;
   color: #abb2bf;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 1.1rem;
   outline: none;
   width: 100%;
   padding: 0;
   margin: 0;
-  
 }
 
 .terminal-input-field {
@@ -103,6 +105,7 @@ body {
   word-wrap: break-word;
   margin: 0.5rem 0 0 1rem;
   color: #abb2bf;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .link {
@@ -119,9 +122,11 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   color: #c61a1a;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .repo-description {
   font-size: 13px;
   color: #abb2bf;
+  font-family: 'JetBrains Mono', monospace;
 }
