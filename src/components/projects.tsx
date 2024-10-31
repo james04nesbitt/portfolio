@@ -1,17 +1,9 @@
 import InViewElement from "./inview";
-import { Link } from 'react-router-dom';
 const Projects = () => (
     <div className="projects">
         <h2 className="tp">Projects</h2>
         <ul>
-        <InViewElement>
-                <li><Link to='/neural_network/'>
-                    <div className="project left"><h1>Neural Network</h1>
-                        <p className="info">Here I built an entire Neural network from scratch using only the numpy library.</p>
-                    </div></Link>
-
-                </li>
-            </InViewElement>
+        
             <InViewElement>
                 <li><a href='https://github.com/james04nesbitt/Signal_Street'><div className="project right">
                     <h1>Signal Street</h1>
