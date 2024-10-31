@@ -118,8 +118,13 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
         break;
       case 'work experience':
         output = `Work Experience:
- - Software Engineer Intern at Ford Motor Company
-   - Developed a Chatbot using Vertex AI and Gemini to develop...`;
+   Software Engineer Intern at Ford Motor Company
+   - Developed an Angular frontend with MSAL authentication, providing a generic search tool as well an AI-powered chatbot for communicating and querying a database of car orders for dealerships.
+-Created Flask endpoints to handle direct search queries and designed a Retrieval-Augmented Generation (RAG) based large language model (LLM) via Vertex AI, to dynamically convert natural language inputs into SQL queries
+-Developed a Java Spring backend to consolidate multiple regional databases into a global database, and translating frontend queries into executable SQL for the respective database.
+-Utilized Tekton for continuous integration/deployment, managed APIs with APIGEE, and hosted our application Google Cloud to ensure scalable and reliable performance, as well as maintained multiple tests in each layer of the application.
+
+Technologies Used: Angular, MSAL, Python, Flask, Java Spring, Gemini API, Vertex AI, Tekton, APIGEE, IBM DB2, SQL Server, Google Cloud`;
         break;
       case 'clear':
         setCommandHistory([]);
