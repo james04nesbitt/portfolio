@@ -133,6 +133,8 @@ Technologies Used: Angular, MSAL, Python, Flask, Java Spring, Gemini API, Vertex
       case 'resume':
         setIsResumeOpen(true);
         break;
+      
+          
       default:
         output = `Command not found: ${command}`;
     }
