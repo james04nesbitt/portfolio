@@ -93,11 +93,12 @@ function Terminal() {
  - clear
  - resume
  - course work
+ - links
 
 Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portfolio</a>`;
         break;
       case 'about me':
-        output = 'I\'m James Nesbitt, I\'m a student at the University of Michigan-Ann Arbor studying Computer Science. I am interested in many aspects of this field from Machine Learning, App Development, IoT, and Fullstack Development, as well as the intersection of Computer Science and Finance. In my free time, I like to play the guitar, workout, and ';
+        output = 'I\'m James Nesbitt, I\'m a student at the University of Michigan-Ann Arbor studying Computer Science. I am interested in many aspects of this field from Machine Learning, App Development, IoT, and Fullstack Development, as well as the intersection of Computer Science and Finance. In my free time, I like to play the guitar, workout, and hang out with friends.';
         break;
       case 'projects':
         output = (
@@ -122,17 +123,30 @@ Visit the alternate portfolio: <a href="/alternate" class="link">Alternate Portf
    - Developed an Angular frontend with MSAL authentication, providing a generic search tool as well an AI-powered chatbot for communicating and querying a database of car orders for dealerships.
 -Created Flask endpoints to handle direct search queries and designed a Retrieval-Augmented Generation (RAG) based large language model (LLM) via Vertex AI, to dynamically convert natural language inputs into SQL queries
 -Developed a Java Spring backend to consolidate multiple regional databases into a global database, and translating frontend queries into executable SQL for the respective database.
--Utilized Tekton for continuous integration/deployment, managed APIs with APIGEE, and hosted our application Google Cloud to ensure scalable and reliable performance, as well as maintained multiple tests in each layer of the application.
+-Utilized Tekton for continuous integration/deployment, managed APIs with APIGEE, and hosted our application Google Cloud Run to ensure scalable and reliable performance, as well as maintained multiple tests in each layer of the application.
 
 Technologies Used: Angular, MSAL, Python, Flask, Java Spring, Gemini API, Vertex AI, Tekton, APIGEE, IBM DB2, SQL Server, Google Cloud`;
         break;
       case 'clear':
         setCommandHistory([]);
         setInput('');
+        setIsResumeOpen(false);
         return;
       case 'resume':
         setIsResumeOpen(true);
         break;
+      case 'links':
+        let email = 'james22nesbitt@gmail.com';
+        output = (
+        <div><a href="https://www.linkedin.com/in/jamesnesbitt04/">LinkedIn</a><br/>
+        <a href='https://github.com/james04nesbitt'>Github</a><br/>
+        <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+          {email}
+        </a><br/>
+        </div>
+        )
+        break;
+
       
           
       default:
