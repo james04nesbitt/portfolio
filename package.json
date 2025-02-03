@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "options": {
-    "allowedHosts": ["localhost", ".localhost"],
+    "allowedHosts": [
+      "localhost",
+      ".localhost"
+    ],
     "proxy": "https://localhost:5000/"
   },
   "dependencies": {
@@ -59,6 +62,7 @@
   "devDependencies": {
     "0": "@babel/plugin-proposal-private-property-in-object",
     "@babel/preset-react": "^7.24.7",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "webpack": "^5.97.1"
   }
 }

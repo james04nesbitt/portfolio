@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './home';
+import Maya from './maya';
 
 
 const root = ReactDOM.createRoot(
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} /> {/* Keep App at the root path */}
         <Route path='alternate' element={<App/>}/>{}
+        <Route path='forMyBeautfulAmazingMaya' element={<Maya/>}/>{}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
