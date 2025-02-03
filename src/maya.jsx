@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
+import { motion, AnimatePresence, color } from 'framer-motion';
 // Generate an array of random hearts
 const generateHearts = (count = 15) =>
   Array.from({ length: count }, (_, i) => ({
@@ -33,9 +32,9 @@ const Maya = () => {
   // No: randomize button position and rename
   const handleNo = () => {
     setCardState('no');
-    setNoButtonText('Are you sure?');
-    const randomTop = Math.floor(Math.random() * 90); // 0-90%
-    const randomLeft = Math.floor(Math.random() * 90); // 0-90%
+    setNoButtonText('no');
+    const randomTop = Math.floor(Math.random() * 100); // 0-90%
+    const randomLeft = Math.floor(Math.random() * 340); // 0-90%
     setNoButtonStyle({
       position: 'absolute',
       top: randomTop + '%',
@@ -68,7 +67,7 @@ const Maya = () => {
               animate={animatePos}
               exit={{ opacity: 0 }}
               transition={{
-                delay: heart.delay,
+                // delay: heart.delay,
                 duration: heart.duration,
                 repeat: Infinity,
                 repeatType: 'loop',
@@ -94,7 +93,7 @@ const Maya = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div style={styles.envelopeText}>To my beautiful girlfriend Maya</div>
+          <div style={styles.header}>To my beautiful, amazing, gorgeous, intelligent, perfect girlfriend Maya</div>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -119,24 +118,28 @@ const Maya = () => {
             <div style={styles.cardSideLeft}>
               {cardState === 'yes' ? (
                 <img
-                  src="https://media.giphy.com/media/3ornjXIZ0OZ6vBIkTC/giphy.gif"
+                  src="https://media.giphy.com/media/25688FI5AUUVf04upZ/giphy.gif?cid=790b7611ugtlqwdfljmeopc0n3mb7dgsngvwmnlhgp8yp1lg&ep=v1_gifs_search&rid=giphy.gif&ct=g"
                   alt="Yay gif"
                   style={styles.image}
                 />
               ) : (
-                <p style={styles.placeholderText}>[Placeholder for a Picture or GIF]</p>
+                <img
+                  src="/images/val.jpg"
+                  alt="Maya and I"
+                  style={styles.image}
+                />
               )}
             </div>
 
             {/* Right side: show a picture before yes, none after */}
             <div style={styles.cardSideRight}>
               {cardState === 'yes' ? (
-                <p style={styles.cursiveText}>Yayyy. Cant wait to see you on the 14th my love!</p>
+                <p style={styles.YayacursiveText}>Yayyy. Cant wait to see you on the 14th my love!💖</p>
               ) : (
                 <>
                   <p style={styles.cursiveText}>Dear Maya, Will you be my Valentine?</p>
                   <img
-                    src="https://via.placeholder.com/200"
+                    src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWltbWhpYWo4cndlZHI3YzlqdWFrYTlneDBsaGI1ZzYzcWdzc2J3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0GqFhyNd0Wmfo6sM/giphy.gif"
                     alt="Right side placeholder"
                     style={styles.image}
                   />
@@ -185,6 +188,12 @@ const styles = {
   envelopeText: {
     marginBottom: '20px',
     fontSize: '1.5rem',
+    color: 'pink',
+  },
+  header: {
+    marginBottom: '20px',
+    fontSize: '3rem',
+    color: "red",
   },
   envelope: {
     width: '200px',
@@ -247,6 +256,14 @@ const styles = {
     marginBottom: '20px',
     textAlign: 'center',
     margin: '0 10px',
+    color: '#AA336A'
+  },
+  YayacursiveText: {
+    fontSize: '1.7rem',
+    marginBottom: '20px',
+    textAlign: 'center',
+    margin: '0 10px',
+    color: '#AA336A'
   },
   buttonGroup: {
     position: 'relative',
@@ -266,7 +283,7 @@ const styles = {
   },
   image: {
     maxWidth: '90%',
-    maxHeight: '80%',
+    maxHeight: '50%',
     objectFit: 'cover',
     marginTop: '10px',
   },
