@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, color } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 // Generate an array of random hearts
 const generateHearts = (count = 15) =>
   Array.from({ length: count }, (_, i) => ({
