@@ -1,8 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Set the default background and text color for the entire site */
-body {
-  @apply bg-black text-white antialiased;
-}
+@import "tailwindcss";

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import AnimatedText from './ui/AnimatedText';
+import AnimatedText from '../ui/AnimatedText';
 
 export default function HeroSection() {
   return (
